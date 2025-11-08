@@ -396,11 +396,15 @@ namespace Botcraft
             catch (const std::exception& e)
             {
                 LOG_FATAL("Parsing exception while parsing message \"" << packet->GetName() << "\"\n" << e.what());
-                throw;
+                return; // throw;
             }
             for (size_t i = 0; i < subscribed.size(); i++)
             {
-                packet->Dispatch(subscribed[i]);
+                try {
+                    packet->Dispatch(subscribed[i]);
+                } catch(const std::exception& e) {
+                    LOG_FATAL("Handler "<<i<<" failed for packet \"" << packet->GetName() << "\" id "<<packet_id<<":\n" << e.what());
+                }
             }
         }
     }
