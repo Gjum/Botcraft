@@ -89,7 +89,7 @@ namespace Botcraft
         Mending = 70,
         VanishingCurse = 71,
     };
-#else
+#elif PROTOCOL_VERSION < 769 /* < 1.20.4 */ // TODO unsure when ids switched to lexicographical order
     enum class Enchantment
     {
         None = -1,
@@ -143,6 +143,53 @@ namespace Botcraft
 #endif
         Mending,
         VanishingCurse,
+    };
+#else
+    enum class Enchantment
+    {
+        None = -1,
+        AquaAffinity,
+        BaneOfArthropods,
+        BindingCurse,
+        BlastProtection,
+        Breach,
+        Channeling,
+        Density,
+        DepthStrider,
+        Efficiency,
+        FeatherFalling,
+        FireAspect,
+        FireProtection,
+        Flame,
+        Fortune,
+        FrostWalker,
+        Impaling,
+        Infinity,
+        Knockback,
+        Looting,
+        Loyalty,
+        LuckOfTheSea,
+        Lure,
+        Mending,
+        Multishot,
+        Piercing,
+        Power,
+        ProjectileProtection,
+        Protection,
+        Punch,
+        QuickCharge,
+        Respiration,
+        Riptide,
+        Sharpness,
+        SilkTouch,
+        Smite,
+        SoulSpeed,
+        SweepingEdge,
+        SwiftSneak,
+        Thorns,
+        Unbreaking,
+        VanishingCurse,
+        WindBurst,
     };
 #endif
 
