@@ -62,11 +62,12 @@ namespace Botcraft
         virtual void Handle(ProtocolCraft::ClientboundPlayerRotationPacket& packet) override;
 #endif
 
+        /// @brief Follow minecraft physics related flow in LocalPlayer tick function
+        void PhysicsTick();
+
     private:
         void Physics();
 
-        /// @brief Follow minecraft physics related flow in LocalPlayer tick function
-        void PhysicsTick();
         void UpdateSwimming() const;
         /// @brief Perform fluid physics on the player, and set in_water/lava boolean accordingly
         /// @param water If true, will push with water, lava otherwise
